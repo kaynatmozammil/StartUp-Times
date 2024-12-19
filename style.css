@@ -1,0 +1,307 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", "sans-serif";
+    box-sizing: border-box;
+
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* flex-direction: column; */
+}
+
+/* Nav bar */
+#header {
+    width: 100%;
+    height: 100vh;
+    background-image: url(images/background.jpg);
+
+    background-size: cover;
+    background-position: center;
+    justify-content: space-between;
+}
+
+/* .container {
+    padding: 10px 10%;
+} */
+
+/*  */
+
+nav {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
+}
+
+/* .menu {
+    padding-right: 235px;
+  } */
+.navbar {
+    justify-content: space-between;
+    z-index: 10;
+    /* background: linear-gradient(90deg, hsla(0, 0%, 0%, 1) 8%, #0092ca); */
+    background: #000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+div a {
+    text-decoration: none;
+}
+
+.logo {
+    width: 150px;
+    height: 90px;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    /* margin-left: 100px; */
+}
+
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: "";
+    width: 0;
+    height: 3px;
+    background: #0092ca;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* container */
+.container {
+    width: 70vw;
+    height: 100vh;
+    /* background: red; */
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.video {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 80%;
+    margin-top: 0;
+    color: black;
+    /* background: yellow; */
+}
+
+/* button */
+.next-button {
+    background-color: blue;
+    color: white;
+    border: none;
+    /* Remove border */
+    padding: 10px 50px;
+    margin-bottom: 100px;
+    margin-left: 50px;
+    /* Add some padding */
+    font-size: 16px;
+    /* Font size */
+    border-radius: 5px;
+    /* Rounded corners */
+    cursor: pointer;
+    /* Add a pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s;
+    align-self: self-end;
+    /* Smooth hover effects */
+    /* z-index: ; */
+    position: absolute;
+    right: 2%;
+    bottom: -12%;
+    position: fixed;
+}
+
+.next-button:hover {
+    background-color: rgb(77, 77, 224);
+    transform: scale(1.05);
+}
+
+/* form css -> start */
+.question-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 10%;
+    width: 100%;
+    margin-top: -60px;
+}
+
+.question-number {
+    font-size: 1.2rem;
+    color: #0078D4;
+    margin-right: 10px;
+}
+
+.question-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+}
+
+.input-section {
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.styled-input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #0078D4;
+    /* Blue underline */
+    padding: 10px 5px;
+    font-size: 1.2rem;
+    outline: none;
+    color: #333;
+}
+
+.styled-input::placeholder {
+    color: #b0b0b0;
+    font-size: 2.1rem;
+}
+
+.styled-input:focus {
+    border-bottom: 2px solid #005fa1;
+    /* Darker blue underline on focus */
+}
+
+.button-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: self-start;
+    margin-left: 10%;
+}
+
+.ok-button {
+    background-color: #0078D4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    /* width: 100%; */
+    margin-right: 10px;
+
+}
+
+.ok-button:hover {
+    background-color: #005fa1;
+}
+
+.press-enter {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.press-enter strong {
+    font-weight: bold;
+    color: black;
+}
+
+.navigation-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    /* flex-direction: column; */
+}
+
+.nav-button {
+    background-color: #0078D4;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+
+.nav-button:hover {
+    background-color: #005fa1;
+}
+
+.pawered-button {
+    background-color: #0078D4;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+
+
+/* form questions */
+.q1 {
+    display: block;
+    position: absolute;
+    top: 50%;
+}
+
+.q2,
+.q3,
+.q4,
+.q5,
+.q6,
+.q7 {
+    display: block;
+    position: absolute;
+    top: 50%;
+    display: none;
+}
