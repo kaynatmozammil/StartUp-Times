@@ -1,0 +1,23 @@
+body{
+    position: relative;
+}
+.ok-button {
+    background-color: #0078D4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    /* width: 100%; */
+    margin-right: 10px;
+    align-self: self-end;
+    right: 20px;
+    bottom:-5x;
+    position: absolute;
+
+}
+
+.ok-button:hover {
+    background-color: #005fa1;
+}

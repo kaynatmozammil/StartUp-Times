@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="calender.css">
+</head>
+
+<body>
+    <iframe class="calender" src="https://calendar.app.google/sgjr8K8kX73FuR9k9" width="100%" height="500" frameborder="0"></iframe>
+    <br><br><br>
+    <!-- <a href=""><button id="nextButton" class="ok-button submit">Next</button></a> -->
+    <!-- First Page -->
+    <div style="text-align: center; ">
+        <button class="ok-button" onclick="redirectToSuccess()" style="font-size: 20px; padding: 10px 20px;">Next</button>
+    </div>
+
+</body>
+
+<script>
+    function redirectToSuccess() {
+        // Redirect to success page
+        window.location.href = 'success.html';
+
+        // Send a success message via WhatsApp
+        const phoneNumber = '+919341231811'; // Replace with recipient's phone number (with country code)
+        const successMessage = 'Success! Your action was completed successfully.';
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(successMessage)}`;
+
+        // Open WhatsApp in a new tab
+        window.open(whatsappUrl, '_blank');
+    }
+</script>
+
+</html>
