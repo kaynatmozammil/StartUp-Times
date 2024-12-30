@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Set</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* General Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+            height: 100%;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .logo-container img {
+            max-width: 100px;
+            height: auto;
+        }
+
+        /* Container Styling */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: calc(100vh - 60px); /* Full height minus navbar height */
+        }
+
+        /* Responsive Iframe */
+        .video iframe {
+            width: 100%;
+            max-width: 560px;
+            height: 315px;
+            border: none;
+        }
+
+        .video p {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        /* Next Button */
+        .next-button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 20px;
+        }
+
+        .next-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .logo-container img {
+                max-width: 80px;
+            }
+
+            .video iframe {
+                height: 250px;
+            }
+
+            .video p {
+                font-size: 0.9rem;
+            }
+
+            .next-button {
+                font-size: 0.9rem;
+                padding: 8px 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .video iframe {
+                height: 200px;
+            }
+
+            .video p {
+                font-size: 0.8rem;
+            }
+
+            .next-button {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div>
+            <a>
+                <div class="logo-container">
+                    <img src="{{ url_for('static', filename='images/image.png') }}" class="logo" alt="Logo" />
+                </div>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Centered Content -->
+    <div class="container">
+        <div class="video">
+            <iframe src="https://www.youtube.com/embed/4fQpfYIgmm0?autoplay=1&mute=1" allowfullscreen></iframe>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem fuga alias voluptatibus voluptatum
+                fugiat, ducimus consectetur consequatur esse? Explicabo, molestiae ducimus mollitia magni vero neque
+                eaque quasi facere quidem blanditiis.</p>
+        </div>
+        <a href="{{ url_for('form') }}"><button class="next-button">Next</button></a>
+    </div>
+</body>
+
+</html>

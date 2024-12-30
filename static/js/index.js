@@ -1,3 +1,6 @@
+//console.log("JavaScript file is connected successfully!");
+//const q1 = document.getElementsByClassName('q1')[0];
+//console.log(q1);
 // Get elements by class name
 const q1 = document.getElementsByClassName('q1')[0];
 const q2 = document.getElementsByClassName('q2')[0];
@@ -72,42 +75,40 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-// // Add event listener for scrolling
-// let lastScrollY = window.scrollY;
-// window.addEventListener('scroll', () => {
-//     const currentScrollY = window.scrollY;
 
-//     if (currentScrollY > lastScrollY) {
-//         // Scrolling down
-//         if (elements[currentIndex].classList.contains('q7')) {
-//             console.log("Reached the last element, action prevented.");
-//             return; // Stop further execution
-//         }
-//         // Hide the currently visible element
-//         elements[currentIndex].style.display = "none";
+let submit = document.getElementById("submit");
 
-//         // Update index to show the next element
-//         currentIndex = (currentIndex + 1) % elements.length;
+console.log(submit);
 
-//         // Show the next element
-//         elements[currentIndex].style.display = "block";
-//     } else if (currentScrollY < lastScrollY) {
-//         // Scrolling up
-//         if (elements[currentIndex].classList.contains('q1')) {
-//             console.log("Reached the first element, action prevented.");
-//             return; // Stop further execution
-//         }
-//         // Hide the currently visible element
-//         elements[currentIndex].style.display = "none";
-
-//         // Update index to show the previous element
-//         currentIndex = (currentIndex - 1 + elements.length) % elements.length;
-
-//         // Show the previous element
-//         elements[currentIndex].style.display = "block";
-//     }
-
-//     lastScrollY = currentScrollY;
-// });
+//submit.addEventListener("click", () => {
+//    console.log("submeit slflas");
+//    let no = document.getElementById("phone");
+//    console.log(no);
+//    console.log(no.value);
+//
+//})
 
 
+
+
+// form Handling
+
+submit.addEventListener('click', () => {
+    // Select each input field
+    const nameInput = document.querySelector('.q1 .styled-input');
+    const phoneInput = document.querySelector('.q2 .styled-input');
+    const emailInput = document.querySelector('.q3 .styled-input');
+    const profileInput = document.querySelector('.q4 .styled-input');
+    const companyInput = document.querySelector('.q5 .styled-input');
+    const designationInput = document.querySelector('.q6 .styled-input');
+    const introInput = document.querySelector('.q7 .styled-input');
+
+    // Log values of each input field
+//    console.log('Name:', nameInput.value);
+//    console.log('Phone:', phoneInput.value);
+//    console.log('Email:', emailInput.value);
+//    console.log('Profile:', profileInput.value);
+//    console.log('Company:', companyInput.value);
+//    console.log('Designation:', designationInput.value);
+//    console.log('Introduction:', introInput.value);
+});

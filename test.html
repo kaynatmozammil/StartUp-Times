@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>PyScript!</title>
+    <link rel="stylesheet" href="https://pyscript.net/snapshots/2024.9.2/core.css" />
+    <script type="module" src="https://pyscript.net/snapshots/2024.9.2/core.js"></script>
+</head>
+
+<body>
+    <!-- Button to call the Python function -->
+    <button id="myButton">Run Python Function</button>
+
+    <!-- PyScript to define the Python function -->
+    <!-- <py-script>
+
+
+            from js import document
+            from pyodide.ffi import create_proxy
+            import pywhatkit as kit
+
+            def handle(event):
+                # Replace with the recipient's phone number (with country code)
+                phone_number = "+918273930397"
+                message = "Hello! This message is automated using Pywhatkit."
+                # Send the message instantly
+                kit.sendwhatmsg_instantly(phone_number, message)
+                print("Python function executed!")
+
+            # Create a proxy for the Python function
+            handle_proxy = create_proxy(handle)
+
+            # Add event listener for the button
+            button = document.getElementById("myButton")
+            button.addEventListener("click", handle_proxy)
+        </py-script> -->
+        <py-script>
+            from js import fetch
+        
+            async def send_message():
+                # Ensure the function body is indented
+                url = "http://127.0.0.1:5000/send_message"
+                data = {
+                    "phone": "+918273930397",
+                    "message": "Hello! This message is automated using Pywhatkit."
+                }
+                # Send a POST request
+                response = await fetch(
+                    url,
+                    method="POST",
+                    body=JSON.stringify(data),
+                    headers={"Content-Type": "application/json"}
+                )
+                if response.ok:
+                    print("Message sent successfully!")
+                else:
+                    print("Failed to send the message.")
+        
+            # Attach the event listener to the button
+            document.getElementById("myButton").addEventListener("click", lambda _: send_message())
+        </py-script>
+        
+
+
+</body>
+
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<!-- Form for Google Sheets Integration -->
+<form name="submit-to-google-sheet">
+</form>
+
+<!-- Question 1: Name Input -->
+<div class="q1" id="q1">
+    <div class="container">
+        <div class="question-section">
+            <p class="question-number">1 →</p>
+            <p class="question-text">What is your name?</p>
+        </div>
+        <div class="input-section">
+            <input name="Name" type="text" class="styled-input" id="name" placeholder="Type your answer here..." required>
+        </div>
+        <div class="button-section">
+            <button class="ok-button" onclick="validateAndNext(1)">OK</button>
+            <span class="press-enter">press <strong>Enter ↵</strong></span>
+        </div>
+    </div>
+</div>
+
+<!-- Question 2: Phone Number Input -->
+<div class="q2" id="q2" style="display: none;">
+    <div class="container">
+        <div class="question-section">
+            <p class="question-number">2 →</p>
+            <label for="phone" class="question-text">Enter Phone Number with country code (e.g.: +91)</label>
+        </div>
+        <div class="input-section">
+            <input type="tel" name="phone" id="phone" class="styled-input" placeholder="+91 1234567890" required pattern="^\+?\d{1,4}[\s\-]?\(?\d{1,3}\)?[\s\-]?\d{1,4}[\s\-]?\d{1,4}[\s\-]?\d{1,9}$">
+        </div>
+        <div class="button-section">
+            <button class="ok-button" onclick="validateAndNext(2)">OK</button>
+            <span class="press-enter">press <strong>Enter ↵</strong></span>
+        </div>
+    </div>
+</div>
+
+<!-- Question 3: Email Input -->
+<div class="q3" id="q3" style="display: none;">
+    <div class="container">
+        <div class="question-section">
+            <p class="question-number">3 →</p>
+            <p class="question-text">Enter email Id</p>
+        </div>
+        <div class="input-section">
+            <input name="Email" type="email" class="styled-input" id="email" placeholder="Type your answer here..." required>
+        </div>
+        <div class="button-section">
+            <button class="ok-button" onclick="validateAndNext(3)">OK</button>
+            <span class="press-enter">press <strong>Enter ↵</strong></span>
+        </div>
+    </div>
+</div>
+
+<!-- Question 4: Profile Input -->
+<div class="q4" id="q4" style="display: none;">
+    <div class="container">
+        <div class="question-section">
+            <p class="question-number">4 →</p>
+            <p class="question-text">Profile</p>
+        </div>
+        <div class="input-section">
+            <input name="Profile" type="text" class="styled-input" id="profile" placeholder="Type your answer here..." required>
+        </div>
+        <div class="button-section">
+            <button class="ok-button" onclick="validateAndNext(4)">OK</button>
+            <span class="press-enter">press <strong>Enter ↵</strong></span>
+        </div>
+    </div>
+</div>
+
+<!-- Question 5: Company Name Input -->
+<div class="q5" id="q5" style="display: none;">
+    <div class="container">
+        <div class="question-section">
+            <p class="question-number">5 →</p>
+            <p class="question-text">Enter your company name</p>
+        </div>
+        <div class="input-section">
+            <input name="Company" type="text" class="styled-input" id="company" placeholder="Type your answer here..." required>
+        </div>
+        <div class="button-section">
+            <button class="ok-button" onclick="validateAndNext(5)">OK</button>
+            <span class="press-enter">press <strong>Enter ↵</strong></span>
+        </div>
+    </div>
+</div>
+
+<!-- Question 6: Designation Input -->
+<div class="q6" id="q6" style="display: none;">
+    <div class="container">
+        <div class="question-section">
+            <p class="question-number">6 →</p>
+            <p class="question-text">Designation</p>
+        </div>
+        <div class="input-section">
+            <input name="Designation" type="text" class="styled-input" id="designation" placeholder="Type your answer here..." required>
+        </div>
+        <div class="button-section">
+            <button class="ok-button" onclick="validateAndNext(6)">OK</button>
+            <span class="press-enter">press <strong>Enter ↵</strong></span>
+        </div>
+    </div>
+</div>
+
+<!-- Question 7: Introduction Input -->
+<div class="q7" id="q7" style="display: none;">
+    <div class="container">
+        <div class="question-section">
+            <p class="question-number">7 →</p>
+            <p class="question-text">Give me a short introduction</p>
+        </div>
+        <div class="input-section">
+            <input name="Introduction" type="text" class="styled-input" id="intro" placeholder="Type your answer here..." required>
+        </div>
+        <div class="button-section">
+            <button class="ok-button" id="submit">Submit</button>
+            <span class="press-enter">press <strong>Enter ↵</strong></span>
+        </div>
+    </div>
+</div>
+
+
+<!-- Navigation Buttons -->
+<div class="navigation-buttons">
+    <button class="nav-button" id="up">▲</button>
+    <button class="nav-button" id="down">▼</button>
+    <div>
+        <a href="form.html">
+            <button class="pawered-button">powered by StartUpTimes</button>
+        </a>
+    </div>
+</div>
+
+<!-- Firebase Integration -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyBLO09Ptx792E0Jjcc19tS3xZt-1q_ED7M",
+        authDomain: "autostart-3f221.firebaseapp.com",
+        projectId: "autostart-3f221",
+        storageBucket: "autostart-3f221.appspot.com",
+        messagingSenderId: "667197415265",
+        appId: "1:667197415265:web:90e7454736d74b47386f20"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    document.getElementById("submit").addEventListener("click", function () {
+        set(ref(db, 'user/' + document.getElementById("name").value), {
+            nameInput: document.getElementById("name").value,
+            phoneInput: document.getElementById("phone").value,
+            emailInput: document.getElementById("email").value,
+            profileInput: document.getElementById("profile").value,
+            companyInput: document.getElementById("company").value,
+            designationInput: document.getElementById("designation").value,
+            introInput: document.getElementById("intro").value
+        })
+        .then(() => {
+            alert("Data saved successfully!");
+            window.location.href = "/calendar";
+        })
+        .catch((error) => {
+            console.error("Error saving data: ", error);
+        });
+    });
+</script>
+
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+<!-- Google Sheets Form Submission -->
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbx05SgO_ymVmrMEbr9QaflMhrazHWMJSSSCDIB_z51ikpZpkpOnSsclaCMf_LNJyjGE/exec';
+    const form = document.Forms['submit-to-google-sheet'];
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message));
+    });
+</script>
+
+<script>
+    function nextQuestion(currentQuestionIndex) {
+        const currentQuestion = document.getElementById("q" + currentQuestionIndex);
+        const nextQuestion = document.getElementById("q" + (currentQuestionIndex + 1));
+        currentQuestion.style.display = "none";
+        if (nextQuestion) {
+            nextQuestion.style.display = "block";
+        }
+    }
+</script>
+
+
+
+<!-- JavaScript for handling validation and question navigation -->
+<script>
+    // Attach event listeners for "Enter" and "ArrowDown" keys
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === "ArrowDown") {
+            const currentQuestionIndex = getCurrentQuestionIndex();
+            validateAndNext(currentQuestionIndex);
+        }
+    });
+
+    // Attach event listeners to "OK" buttons to trigger validation on click
+    const okButtons = document.querySelectorAll('.ok-button');
+    okButtons.forEach((button) => {
+        button.addEventListener('click', function () {
+            const currentQuestionIndex = parseInt(button.closest('.q1, .q2, .q3, .q4, .q5, .q6, .q7').id.replace('q', ''));
+            validateAndNext(currentQuestionIndex);
+        });
+    });
+
+    // Function to get the current question index based on the visible question
+    function getCurrentQuestionIndex() {
+        let currentQuestionIndex = 1;
+        while (document.getElementById("q" + currentQuestionIndex) && document.getElementById("q" + currentQuestionIndex).style.display !== "none") {
+            currentQuestionIndex++;
+        }
+        return currentQuestionIndex - 1; // Return the index of the currently visible question
+    }
+
+    // Function to validate input and move to the next question
+    function validateAndNext(currentQuestionIndex) {
+        const inputField = document.getElementById(getInputFieldId(currentQuestionIndex));
+
+        // Check if the input is valid
+        if (!inputField.checkValidity()) {
+            // If invalid, show an alert with the validation message
+            alert(inputField.validationMessage);
+            return; // Stop further execution if validation fails
+        }
+
+        // Hide the current question
+        const currentQuestion = document.getElementById("q" + currentQuestionIndex);
+        currentQuestion.style.display = "none";
+
+        // Show the next question if available
+        const nextQuestion = document.getElementById("q" + (currentQuestionIndex + 1));
+        if (nextQuestion) {
+            nextQuestion.style.display = "block";
+        }
+    }
+
+    // Helper function to get the correct input field ID
+    function getInputFieldId(questionIndex) {
+        switch (questionIndex) {
+            case 1: return "name";
+            case 2: return "phone";
+            case 3: return "email";
+            case 4: return "profile";
+            case 5: return "company";
+            case 6: return "designation";
+            case 7: return "intro";
+            default: return "";
+        }
+    }
+
+    // Show the first question on page load
+    document.getElementById("q1").style.display = "block";
+</script>
+
+
+
+</body>
+
+</html>

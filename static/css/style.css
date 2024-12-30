@@ -18,6 +18,7 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
+    overflow-x: hidden;
     /* flex-direction: column; */
 }
 
@@ -306,4 +307,43 @@ iframe {
     display: none;
 }
 
+/* form */
+form{
+    
+}
 
+/* Existing Styles... */
+/* Responsive Design */
+@media (max-width: 768px) {
+    .question-section, .input-section, .button-section {
+        align-items: center;
+        text-align: center;
+    }
+
+    .question-text, .press-enter {
+        font-size: 1rem;
+    }
+
+    .ok-button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .styled-input {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .question-text {
+        font-size: 0.9rem;
+    }
+
+    .styled-input {
+        font-size: 0.8rem;
+    }
+
+    .ok-button {
+        font-size: 0.8rem;
+    }
+}

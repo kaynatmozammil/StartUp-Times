@@ -1,0 +1,65 @@
+Date: 21/12/2024
+Time: 23:10
+Phone Number: +917033384974
+Message: Hi fizan
+--------------------
+Date: 21/12/2024
+Time: 23:18
+Phone Number: +917033384974
+Message: hi hi
+--------------------
+Date: 21/12/2024
+Time: 23:25
+Phone Number: +917033384974
+Message: hi babu
+--------------------
+Date: 21/12/2024
+Time: 23:31
+Phone Number: +917033384974
+Message: hi hi hi
+--------------------
+Date: 23/12/2024
+Time: 0:57
+Phone Number: +917033384974
+Message: Hello! This message is automated using Pywhatkit.
+--------------------
+Date: 23/12/2024
+Time: 13:9
+Phone Number: +917033384974
+Message: Hello! This message is automated using Pywhatkit.
+--------------------
+Date: 23/12/2024
+Time: 13:11
+Phone Number: +917033384974
+Message: Hello! This message is automated using Pywhatkit.
+--------------------
+Date: 23/12/2024
+Time: 15:6
+Phone Number: +917033384974
+Message: Hello! This message is automated using Pywhatkit.
+--------------------
+Date: 23/12/2024
+Time: 15:6
+Phone Number: +917033384974
+Message: Hello! This message is automated using Pywhatkit.
+--------------------
+Date: 23/12/2024
+Time: 15:39
+Phone Number: +919341231811
+Message: Hello! This is an automated message sent via Pywhatkit.
+--------------------
+Date: 23/12/2024
+Time: 15:39
+Phone Number: +919341231811
+Message: Hello! This is an automated message sent via Pywhatkit.
+--------------------
+Date: 24/12/2024
+Time: 12:42
+Phone Number: +919341231811
+Message: Hello! This is an automated message sent via Pywhatkit.
+--------------------
+Date: 24/12/2024
+Time: 12:42
+Phone Number: +919341231811
+Message: Hello! This is an automated message sent via Pywhatkit.
+--------------------
